@@ -32,7 +32,7 @@ class mem_tc
   function bit signed [BITS_AB-1:0][DIM-1:0] get_next_A(int row);
     bit signed [BITS_AB-1:0][DIM-1:0] ret;
     for (int i = 0; i < DIM; i++) begin
-      int index = row + i - DIM - 1;
+      int index = row + i - DIM + 1;
       if (index < 0 || index >= DIM * 2 - 1) begin
         ret[i] = '0;
       end else begin
