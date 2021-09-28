@@ -33,7 +33,6 @@ class mem_tc
     bit signed [BITS_AB-1:0][DIM-1:0] ret;
     for (int i = 0; i < DIM; i++) begin
       int low = DIM - 1 - i;
-      int high = 
       if (row < low || row > low + DIM - 1) begin
         ret[i] = '0;
       end else begin
