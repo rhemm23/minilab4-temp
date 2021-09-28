@@ -36,7 +36,7 @@ class mem_tc
       if (row < low || row > low + DIM - 1) begin
         ret[i] = '0;
       end else begin
-        ret[i] = A[row][row - low];
+        ret[i] = A[row - low][i];
       end
     end
     return ret;
