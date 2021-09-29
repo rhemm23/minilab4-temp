@@ -10,6 +10,8 @@ module memB
   );
   
   logic [$clog2(DIM * 2)-1:0] counter;
+
+  wire [BITS_AB-1:0] in [DIM-1:0];
   
   always_ff @(posedge clk, negedge rst_n) begin
     if (!rst_n)
@@ -26,9 +28,11 @@ module memB
         .clk(clk),
         .rst_n(rst_n),
         .en(en),
-        .d((counter < DIM) ? Bin[col] : 0),
+        .d(in[col]),
         .q(Bout[col])
       );
+
+      assign in[col] = (counter < DIM) ? Bin[col] : { BITS_AB{ 1'b0 } };
     end
   endgenerate
 endmodule
