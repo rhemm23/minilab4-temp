@@ -59,7 +59,7 @@ module mem_tb();
     mtc = new();
     for (int i = 0; i < DIM; i++) begin
       Arow = i;
-      Ain = mtc.A[i];
+      Ain[BITS_AB-1:0] = mtc.A[i][BITS_AB-1:0];
       @(posedge clk);
     end
 
@@ -70,7 +70,7 @@ module mem_tb();
     @(posedge clk);
 
     for (int i = DIM - 1; i >= 0; i--) begin
-      Bin = mtc.B[i];
+      Bin[BITS_AB-1:0] = mtc.B[i][BITS_AB-1:0];
       @(posedge clk);
     end
 
