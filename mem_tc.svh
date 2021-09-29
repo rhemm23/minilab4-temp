@@ -5,9 +5,9 @@ class mem_tc
     parameter DIM=8
   );
 
-  bit signed [BITS_AB-1:0] A [DIM-1:0][DIM-1:0];
-  bit signed [BITS_AB-1:0] B [DIM-1:0][DIM-1:0];
-  bit signed [BITS_C-1:0] C [DIM-1:0][DIM-1:0];
+  logic signed [BITS_AB-1:0] A [DIM-1:0][DIM-1:0];
+  logic signed [BITS_AB-1:0] B [DIM-1:0][DIM-1:0];
+  logic signed [BITS_C-1:0] C [DIM-1:0][DIM-1:0];
 
   function new();
     int Aval, Bval;
