@@ -18,7 +18,7 @@ module memA
         .rst_n(rst_n),
         .en(en),
         .WrEn((Arow == row) && WrEn),
-        .d('{ Ain, '{ row{ 8'h00 } } }),
+        .d('{ Ain, { row{ 8'h00 } } }),
         .q(Aout[row])
       );
     end
