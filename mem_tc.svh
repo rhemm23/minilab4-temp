@@ -29,14 +29,26 @@ class mem_tc
     end
   endfunction: new
 
-  function bit signed [BITS_AB-1:0][DIM-1:0] get_next_A(int row);
+  function bit signed [BITS_AB-1:0][DIM-1:0] get_next_B(int row);
     bit signed [BITS_AB-1:0][DIM-1:0] ret;
     for (int i = 0; i < DIM; i++) begin
       int low = DIM - 1 - i;
       if (row < low || row > low + DIM - 1) begin
         ret[i] = '0;
       end else begin
-        ret[i] = A[row - low][i];
+        ret[i] = B[row - low][i];
+      end
+    end
+    return ret;
+  endfunction: get_next_B
+
+  function bit signed [BITS_AB-1:0][DIM-1:0] get_next_A(int col);
+    bit signed [BITS_AB-1:0][DIM-1:0] ret;
+    for (int i = 0; i < DIM; i++) begin
+      if (col < i || col > i + DIM - 1) begin
+        ret[i] = '0;
+      end else begin
+        ret[i] = A[i][col - i];
       end
     end
     return ret;
