@@ -59,7 +59,7 @@ module mem_tb();
     mtc = new();
     for (int i = 0; i < DIM; i++) begin
       Arow = i;
-      $cast(Ain, mtc.A[i]);
+      Ain = reg'(mtc.A[i]);
       @(posedge clk);
     end
 
@@ -70,7 +70,7 @@ module mem_tb();
     @(posedge clk);
 
     for (int i = DIM - 1; i >= 0; i--) begin
-      $cast(Bin, mtc.B[i]);
+      Bin = reg'(mtc.B[i]);
       @(posedge clk);
     end
 
